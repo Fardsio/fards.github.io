@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <title>Админ Панель</title>
+</head>
+<body>
+    <header>
+        <h1>Админ Панель</h1>
+        <nav>
+            <a href="index.html">Главная</a>
+            <a href="about.html">О нас</a>
+            <a href="admin.html">Админ панель</a>
+        </nav>
+    </header>
+    <main>
+        <form id="contentForm">
+            <label for="content">Добавить контент:</label>
+            <textarea id="content" name="content" required></textarea>
+            <button type="button" id="submitButton" aria-label="Отправить контент">Отправить</button>
+        </form>
+        <div id="contentDisplay"></div>
+    </main>
+    <script>
+        document.getElementById('submitButton').addEventListener('click', function() {
+            const content = document.getElementById('content').value;
+            const contentDisplay = document.getElementById('contentDisplay');
+            
+            // Проверка на пустое значение
+            if (content.trim() === '') {
+                alert('Пожалуйста, введите контент.');
+                return;
+            }
+
+            // Здесь можно добавить логику для обработки контента
+            contentDisplay.innerHTML += `<p>${content}</p>`;
+            document.getElementById('content').value = ''; // Очистка поля ввода
+        });
+    </script>
+</body>
+</html>
